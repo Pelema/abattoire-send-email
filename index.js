@@ -1,7 +1,7 @@
 require("dotenv").config();
 var nodemailer = require("nodemailer");
 const express = require("express");
-
+const cors = require('cors')
 
 const transporter = nodemailer.createTransport({
   host: "mail.brakwatercatalogue.info",
@@ -18,6 +18,8 @@ const transporter = nodemailer.createTransport({
 
 const app = express();
 app.use(express.json())
+app.use(cors())
+
 const port = 8080;
 
 app.post("/", async (req, res) => {
