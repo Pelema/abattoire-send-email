@@ -23,13 +23,13 @@ app.use(cors())
 const port = 8080;
 
 app.post("/", async (req, res) => {
-  const { email, subject, html, text } = req.body;
+  const { subject, html, text } = req.body;
 
   try {
     // send mail with defined transport object
     const info = await transporter.sendMail({
       from: `"Order System" <${process.env.SMTP_USER}>`, // sender address
-      to: email, // list of receivers
+      to: 'macveren.kapukare@gmail.com', // list of receivers
       subject, // Subject line
       text, // plain text body
       html, // html body
